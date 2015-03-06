@@ -110,7 +110,6 @@ void Personaje::setAnimacion(string nombre)
     {
         this->textura_actual_int = 0;
 
-
         vector<SDL_Texture*> *vector_textura_actual_temp = mapa_texturas[nombre];
 
         SDL_Texture* textura_actual_temp = (*vector_textura_actual_temp)[textura_actual_int];
@@ -122,7 +121,6 @@ void Personaje::setAnimacion(string nombre)
 
         rect.x -= (rect.w-w_ant)/2;
         rect.y -= (rect.h-h_ant);
-
     }
 
     this->vector_actual_str = nombre;

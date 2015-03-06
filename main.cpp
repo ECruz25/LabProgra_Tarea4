@@ -17,7 +17,6 @@ SDL_Event Event;
 SDL_Texture *background;
 SDL_Rect rect_background;
 
-
 void loopJuego()
 {
     //Init textures
@@ -93,6 +92,44 @@ void loopJuego()
     }
 }
 
+void instrucciones()
+{
+
+    int w=0,h=0;
+    SDL_Texture *menu_how = IMG_LoadTexture(renderer,"instrucciones.png");
+    SDL_QueryTexture(menu_how, NULL, NULL, &w, &h);
+    rect_background.x = 0;
+    rect_background.y = 0;
+    rect_background.w = w;
+    rect_background.h = h;
+    while(true)
+    {
+        while(SDL_PollEvent(&Event))
+        {
+            if(Event.type == SDL_QUIT)
+            {
+                exit(0);
+            }
+            if(Event.type == SDL_KEYDOWN)
+            {
+                if(Event.key.keysym.sym == SDLK_ESCAPE)
+                {
+                    return;
+                }
+            }
+        }
+
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+
+        SDL_RenderClear(renderer);
+
+        SDL_RenderCopy(renderer, menu_how, NULL, &rect_background);
+
+        SDL_RenderPresent(renderer);
+
+    }
+}
+
 class MenuButton
 {
 public:
@@ -131,6 +168,7 @@ public:
 
 void mainMenu()
 {
+
     int opcion = 1;
     SDL_Texture *menu_fondo = IMG_LoadTexture(renderer,"menu_fondo.png");
     SDL_Rect menu_rect;
@@ -167,14 +205,19 @@ void mainMenu()
                 if(Event.key.keysym.sym == SDLK_DOWN)
                 {
                     opcion++;
-                    if(opcion > 3)
+                    if(opcion > 4)
                         opcion = 3;
+                    if(opcion == 4)
+                        opcion = 1;
                 }
                 if(Event.key.keysym.sym == SDLK_UP)
                 {
                     opcion--;
-                    if(opcion < 1)
+                    if(opcion < 0)
                         opcion = 1;
+                    if(opcion == 0)
+                        opcion = 3;
+
                 }
                 if(Event.key.keysym.sym == SDLK_RETURN)
                 {
@@ -184,7 +227,7 @@ void mainMenu()
                             loopJuego();
                         break;
                         case 2:
-
+                            instrucciones();
                         break;
                         case 3:
                             exit(0);
