@@ -717,7 +717,7 @@
 1425586519 /home/edwin/Documents/SDLMenu2/Enemigo.h
 	"Personaje.h"
 
-1425586519 /home/edwin/Documents/SDLMenu2/Personaje.h
+1426253920 /home/edwin/Documents/SDLMenu2/Personaje.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<vector>
@@ -743,12 +743,13 @@
 1425586519 /home/edwin/Documents/SDLMenu2/EnemigoVerde.h
 	"Enemigo.h"
 
-1425661386 source:/home/edwin/Documents/SDLMenu2/main.cpp
+1426254467 source:/home/edwin/Documents/SDLMenu2/main.cpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
 	<vector>
 	<list>
+	<fstream>
 	"Sho.h"
 	"EnemigoAzul.h"
 	"EnemigoVerde.h"
@@ -757,9 +758,62 @@
 1425586519 /home/edwin/Documents/SDLMenu2/Sho.h
 	"Personaje.h"
 
-1425659704 source:/home/edwin/Documents/SDLMenu2/Personaje.cpp
+1426253351 source:/home/edwin/Documents/SDLMenu2/Personaje.cpp
 	"Personaje.h"
 
-1425586519 source:/home/edwin/Documents/SDLMenu2/Sho.cpp
+1426253920 source:/home/edwin/Documents/SDLMenu2/Sho.cpp
 	"Sho.h"
+
+1425586519 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Enemigo.cpp
+	"Enemigo.h"
+
+1425586519 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Enemigo.h
+	"Personaje.h"
+
+1426253920 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Personaje.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<vector>
+	<list>
+	<iostream>
+	<map>
+
+1425586519 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoAzul.cpp
+	"EnemigoAzul.h"
+
+1425586519 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoAzul.h
+	"Enemigo.h"
+
+1425586519 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoRojo.cpp
+	"EnemigoRojo.h"
+
+1425586519 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoRojo.h
+	"Enemigo.h"
+
+1425586519 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoVerde.cpp
+	"EnemigoVerde.h"
+
+1425586519 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/EnemigoVerde.h
+	"Enemigo.h"
+
+1426253351 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Personaje.cpp
+	"Personaje.h"
+
+1426253920 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Sho.cpp
+	"Sho.h"
+
+1425586519 /home/edwin/Documents/Lab. Programacion 3/SDLMenu2/Sho.h
+	"Personaje.h"
+
+1426263567 source:/home/edwin/Documents/Lab. Programacion 3/SDLMenu2/main.cpp
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<iostream>
+	<vector>
+	<list>
+	<fstream>
+	"Sho.h"
+	"EnemigoAzul.h"
+	"EnemigoVerde.h"
+	"EnemigoRojo.h"
 

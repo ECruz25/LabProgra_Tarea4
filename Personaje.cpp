@@ -87,15 +87,15 @@ void Personaje::attackCheck()
             {
                 if(colision((*i)->hitbox))
                 {
-                    cout<<"Colision! "<< frame <<endl;
-                    cout<< (*i)->hitbox.x <<endl;
-                    cout<< (*i)->hitbox.y <<endl;
-                    cout<< (*i)->hitbox.w <<endl;
-                    cout<< (*i)->hitbox.h <<endl;
-                    cout<< hitbox.x <<endl;
-                    cout<< hitbox.y <<endl;
-                    cout<< hitbox.w <<endl;
-                    cout<< hitbox.h <<endl;
+//                    cout<<"Colision! "<< frame <<endl;
+//                    cout<< (*i)->hitbox.x <<endl;
+//                    cout<< (*i)->hitbox.y <<endl;
+//                    cout<< (*i)->hitbox.w <<endl;
+//                    cout<< (*i)->hitbox.h <<endl;
+//                    cout<< hitbox.x <<endl;
+//                    cout<< hitbox.y <<endl;
+//                    cout<< hitbox.w <<endl;
+//                    cout<< hitbox.h <<endl;
                     //personajes->erase(i);
                     (*i)->muerto = true;
                 }
@@ -125,13 +125,3 @@ void Personaje::setAnimacion(string nombre)
 
     this->vector_actual_str = nombre;
 }
-
-
-
-
-
-
-
-
-
-

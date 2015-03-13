@@ -1,9 +1,12 @@
-
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
+//#include<SDL2/SDL_ttf.h>
+
 #include<iostream>
 #include<vector>
 #include<list>
+#include<fstream>
+
 #include "Sho.h"
 #include "EnemigoAzul.h"
 #include "EnemigoVerde.h"
@@ -17,9 +20,56 @@ SDL_Event Event;
 SDL_Texture *background;
 SDL_Rect rect_background;
 
+string iniciales;
+string iniciales_;
+
+void Save(int frame, string iniciales)
+{
+    ofstream o("Score.txt");
+//    o.write((char*)&frame,4);
+    o<<frame;
+    o<<iniciales<<endl;
+    o.close();
+}
+
+int Print()
+{
+    int Score;
+    ifstream i("Score.txt");
+    i>>Score;
+//    i.seekg(0);
+//    i.read((char*)&Score, 4);
+    i.close();
+    cout<<Score<<endl;
+    return Score;
+}
+/*
+void DisplayText(int frame)
+{
+
+    string score = ""+frame;
+
+    TTF_Font* Sans = TTF_OpenFont("Monaco.ttf", 24);
+
+    SDL_Color White = {255, 255, 255};
+
+    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, score, White);
+
+    SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
+
+    SDL_Rect Message_rect;
+    Message_rect.x = 0;
+    Message_rect.y = 0;
+    Message_rect.w = 100;
+    Message_rect.h = 100;
+
+    SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
+}
+*/
 void loopJuego()
 {
     //Init textures
+    int frame=0;
     int w=0,h=0;
     background = IMG_LoadTexture(renderer,"fondo.png");
     SDL_QueryTexture(background, NULL, NULL, &w, &h);
@@ -35,10 +85,9 @@ void loopJuego()
     personajes.push_back(new EnemigoRojo(renderer,&personajes));
 
     //Main Loop
-    int frame=0;
-    int animacion_sho = 0;
+    bool done = false;
     const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
-    while(true)
+    while(!done)
     {
         while(SDL_PollEvent(&Event))
         {
@@ -82,6 +131,11 @@ void loopJuego()
                 p++)
             if((*p)->muerto)
             {
+                if((*p)->type == "Sho")
+                {
+
+                    done = true;
+                }
                 personajes.erase(p);
                 break;
             }
@@ -89,6 +143,24 @@ void loopJuego()
         SDL_RenderPresent(renderer);
 
         frame++;
+
+        if(done)
+        {
+            if(Print()<frame)
+            {
+                cout<<"Ingrese sus iniciales: [_,_,_]"<<endl;
+                cin>>iniciales;
+                for(int c=0;c<3;c++)
+                {
+                    iniciales_+=iniciales[c];
+                }
+                Save(frame, iniciales_);
+            }
+            else
+            {
+                cout<<"Vuelvalo a intentar"<<endl;
+            }
+        }
     }
 }
 

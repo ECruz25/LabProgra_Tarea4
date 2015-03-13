@@ -39,6 +39,7 @@ Sho::Sho(SDL_Renderer* renderer,list<Personaje*> *personajes)
     mapa_texturas["punch_left"]->push_back(IMG_LoadTexture(renderer,"Sho/punch_left/2.png"));
     mapa_texturas["punch_left"]->push_back(IMG_LoadTexture(renderer,"Sho/punch_left/3.png"));
 
+    type = "Sho";
 
     vector_actual_str = "right";
 
@@ -83,7 +84,7 @@ void Sho::act()
         rect.x++;
         setAnimacion("walk_right");
     }
-    else if(currentKeyStates[SDL_SCANCODE_Z])
+    else if(currentKeyStates[SDL_SCANCODE_A])
     {
         rect.x--;
         setAnimacion("walk_left");
