@@ -28,8 +28,11 @@ void Save(int frame, string iniciales)
     ofstream o("Score.txt");
 //    o.write((char*)&frame,4);
     o<<frame;
-    o<<iniciales<<endl;
+//    o<<iniciales<<endl;
     o.close();
+    ofstream u("Nombres.txt");
+    u<<iniciales_;
+    u.close();
 }
 
 int Print()
@@ -40,8 +43,17 @@ int Print()
 //    i.seekg(0);
 //    i.read((char*)&Score, 4);
     i.close();
-    cout<<Score<<endl;
+//    cout<<Score<<endl;
     return Score;
+}
+
+string PrintName()
+{
+    string inicial;
+    ifstream n("Nombres.txt");
+    n>>inicial;
+    n.close();
+    return inicial;
 }
 /*
 void DisplayText(int frame)
@@ -133,7 +145,6 @@ void loopJuego()
             {
                 if((*p)->type == "Sho")
                 {
-
                     done = true;
                 }
                 personajes.erase(p);
@@ -150,15 +161,20 @@ void loopJuego()
             {
                 cout<<"Ingrese sus iniciales: [_,_,_]"<<endl;
                 cin>>iniciales;
-                for(int c=0;c<3;c++)
+                if(iniciales!=PrintName())
                 {
-                    iniciales_+=iniciales[c];
+                    for(int c=0;c<3;c++)
+                    {
+                        iniciales_+=iniciales[c];
+                    }
                 }
                 Save(frame, iniciales_);
             }
             else
             {
                 cout<<"Vuelvalo a intentar"<<endl;
+                cout<<"Puntuacion mas alta: "<<endl;
+                cout<<PrintName()<<": "<<Print()<<endl;
             }
         }
     }
